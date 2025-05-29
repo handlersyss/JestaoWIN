@@ -83,7 +83,7 @@ Um script PowerShell completo para otimização, limpeza e manutenção automát
 
 ### Instalação e Execução
 
-1. **Salve o script** em um arquivo `.ps1` (exemplo: `ManutencaoWindows.ps1`)
+1. **Salve o script** em um arquivo `.ps1` (exemplo: `jestao_win.ps1`)
 
 2. **Abra o PowerShell como Administrador**
    - Clique com botão direito no menu Iniciar
@@ -96,7 +96,7 @@ Um script PowerShell completo para otimização, limpeza e manutenção automát
 
 4. **Execute o script**
    ```powershell
-   .\ManutencaoWindows.ps1
+   .\jestao_win.ps1
    ```
 
 5. **Escolha a opção desejada** no menu interativo
