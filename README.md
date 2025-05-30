@@ -1,156 +1,148 @@
-# 🛠️ Script de Manutenção Automática do Windows
+# JestaoWIN - Sistema de Manutenção e Otimização Windows
 
-Um script PowerShell completo para otimização, limpeza e manutenção automática de sistemas Windows.
+Um sistema completo de manutenção e otimização para Windows, desenvolvido em PowerShell.
 
-## 📋 Índice
+## 📋 Descrição
 
-- [Funcionalidades](#-funcionalidades)
-- [Funcionalidades Especiais](#-funcionalidades-especiais)
-- [Requisitos](#️-requisitos)
-- [Como Usar](#-como-usar)
-- [Estrutura do Menu](#-estrutura-do-menu)
-- [Logs e Relatórios](#-logs-e-relatórios)
-- [Precauções](#️-precauções)
-- [Suporte](#-suporte)
+O JestaoWIN é uma ferramenta abrangente que automatiza várias tarefas de manutenção e otimização do Windows, incluindo:
 
-## 🔧 Funcionalidades
+- Limpeza de arquivos temporários
+- Otimização de serviços
+- Gerenciamento de atualizações
+- Monitoramento de sistema
+- Reparo de arquivos do sistema
+- Gerenciamento de logs
+- Configuração de firewall e segurança
+- Análise de rede
+- Backup automatizado
+- Análise de disco
+- Gerenciamento de programas via Winget
+- Geração de relatórios
 
-### 1. **Limpeza de Arquivos Temporários**
-- Remove arquivos das pastas Temp, Prefetch, Downloads do Windows Update
-- Limpa cache de navegadores (Chrome, Edge, Internet Explorer)
-- Limpa arquivos temporários de todos os usuários
+## 🚀 Requisitos
 
-### 2. **Otimização de Serviços**
+- Windows 10 ou superior
+- PowerShell 5.0 ou superior
+- Privilégios de administrador
+- Conexão com a internet (para algumas funcionalidades)
+
+## 📦 Instalação
+
+1. Clone ou baixe este repositório
+2. Navegue até a pasta do projeto
+3. Execute o script principal como administrador:
+```powershell
+.\jestao_win.ps1
+```
+
+## 🛠️ Estrutura do Projeto
+
+```
+JestaoWIN/
+├── src/
+│   ├── config/
+│   │   └── config.ps1
+│   ├── utils/
+│   │   └── logger.ps1
+│   └── functions/
+│       ├── cleanup.ps1
+│       ├── services.ps1
+│       ├── updates.ps1
+│       ├── monitoring.ps1
+│       ├── repair.ps1
+│       ├── logs.ps1
+│       ├── security.ps1
+│       ├── network.ps1
+│       ├── backup.ps1
+│       ├── disk.ps1
+│       ├── programs.ps1
+│       └── report.ps1
+├── jestao_win.ps1
+└── README.md
+```
+
+## 📝 Funcionalidades
+
+### 1. Limpeza de Arquivos Temporários
+- Remove arquivos temporários do sistema
+- Limpa cache de navegadores
+- Remove arquivos temporários de usuários
+
+### 2. Otimização de Serviços
 - Desabilita serviços desnecessários
-- Otimiza configurações de serviços críticos
-- Melhora a performance geral do sistema
+- Otimiza configurações de serviços essenciais
 
-### 3. **Gerenciamento de Atualizações**
-- Verifica e instala atualizações críticas automaticamente
-- Usa o módulo PSWindowsUpdate para controle avançado
+### 3. Gerenciamento de Atualizações
+- Verifica e instala atualizações do Windows
+- Gerencia atualizações de programas via Winget
 
-### 4. **Monitoramento de Performance**
-- Monitora CPU, memória e uso de disco em tempo real
-- Identifica processos com maior consumo
-- Gera alertas para problemas de performance
+### 4. Monitoramento de Sistema
+- Monitora uso de CPU e memória
+- Analisa processos em execução
+- Gera alertas de performance
 
-### 5. **Reparo de Sistema**
-- Executa SFC /scannow para verificar arquivos do sistema
-- Usa DISM para reparar imagens corrompidas
-- Verifica integridade dos discos
+### 5. Reparo de Arquivos do Sistema
+- Executa SFC /scannow
+- Realiza verificação DISM
+- Executa chkdsk
 
-### 6. **Gerenciamento de Logs**
-- Arquiva logs grandes automaticamente
-- Identifica eventos críticos recentes
-- Mantém histórico de auditoria
+### 6. Gerenciamento de Logs
+- Gerencia logs do sistema
+- Arquivamento de logs antigos
+- Monitoramento de eventos críticos
 
-### 7. **Firewall e Segurança**
-- Configura regras de firewall automaticamente
-- Verifica status do Windows Defender
-- Implementa regras de segurança básicas
+### 7. Segurança
+- Configuração do Windows Firewall
+- Verificação do Windows Defender
+- Implementação de regras de segurança
 
-### 8. **Configuração de Rede**
-- Analisa adaptadores de rede e configurações IP
-- Testa conectividade com servidores externos
-- Limpa cache DNS e reseta Winsock
+### 8. Rede
+- Análise de configuração de rede
+- Testes de conectividade
+- Verificação de DNS
 
-### 9. **Backup Automatizado**
-- Cria backup de arquivos críticos do sistema
-- Backup de registros importantes
-- Backup de pastas de usuários (Desktop, Documentos, Downloads)
+### 9. Backup
+- Backup de arquivos críticos
+- Backup de perfis de usuário
+- Backup do registro
 
-### 10. **Análise de Disco**
-- Verifica saúde física dos discos (S.M.A.R.T.)
-- Analisa uso de espaço e fragmentação
-- Gera alertas para discos com problemas
+### 10. Disco
+- Análise de saúde dos discos
+- Verificação de espaço livre
+- Desfragmentação (HDDs)
 
-## 🚀 Funcionalidades Especiais
+### 11. Programas
+- Gerenciamento via Winget
+- Atualização de programas
+- Listagem de programas instalados
 
-- **Interface de Menu Intuitiva**: Menu colorido e organizado
-- **Manutenção Completa**: Executa todas as funções automaticamente
-- **Relatório HTML Detalhado**: Gera relatório completo em HTML
-- **Sistema de Logs Avançado**: Registra todas as operações
-- **Verificação de Privilégios**: Garante execução como administrador
+### 12. Relatórios
+- Geração de relatórios HTML
+- Análise completa do sistema
+- Recomendações de manutenção
 
-## ⚠️ Requisitos
+## ⚠️ Avisos
 
-- **Sistema Operacional**: Windows 10/11 ou Windows Server
-- **PowerShell**: Versão 5.0 ou superior
-- **Privilégios**: Administrador necessário
-- **Conectividade**: Conexão com internet (para atualizações)
+- Sempre execute o script como administrador
+- Faça backup dos seus dados antes de executar manutenções
+- Algumas funções podem requerer reinicialização do sistema
 
-## 📋 Como Usar
+## 🤝 Contribuindo
 
-### Instalação e Execução
+Contribuições são bem-vindas! Para contribuir:
 
-1. **Salve o script** em um arquivo `.ps1` (exemplo: `jestao_win.ps1`)
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-2. **Abra o PowerShell como Administrador**
-   - Clique com botão direito no menu Iniciar
-   - Selecione "Windows PowerShell (Admin)" ou "Terminal (Admin)"
+## 📄 Licença
 
-3. **Navegue até o diretório do script**
-   ```powershell
-   cd "C:\caminho\para\o\script"
-   ```
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-4. **Execute o script**
-   ```powershell
-   .\jestao_win.ps1
-   ```
+## ✨ Agradecimentos
 
-5. **Escolha a opção desejada** no menu interativo
-
-### Execução Rápida (Manutenção Completa)
-
-Para executar todas as funções automaticamente, use a **opção 11** no menu principal.
-
-## 🔢 Estrutura do Menu
-
-```
-1.  Limpeza de Arquivos Temporários
-2.  Otimização de Serviços
-3.  Gerenciamento de Atualizações
-4.  Monitoramento de Performance
-5.  Reparo de Sistema
-6.  Gerenciamento de Logs
-7.  Firewall e Segurança
-8.  Configuração de Rede
-9.  Backup Automatizado
-10. Análise de Disco
-11. Manutenção Completa (Executa tudo)
-0.  Sair
-```
-
-## 📄 Logs e Relatórios
-
-O script gera automaticamente:
-
-- **Logs detalhados** de todas as operações
-- **Relatório HTML** com resumo completo das ações executadas
-- **Histórico de auditoria** para acompanhamento das manutenções
-
-Os arquivos são salvos no mesmo diretório do script com timestamp para organização.
-
-## ⚠️ Precauções
-
-- **Sempre execute como Administrador** para garantir funcionamento completo
-- **Faça backup** de dados importantes antes de executar
-- **Teste em ambiente controlado** antes de usar em produção
-- **Verifique as configurações** de serviços antes de aplicar otimizações
-- **Mantenha conexão com internet** ativa durante atualizações
-
-## 🆘 Suporte
-
-Para questões técnicas ou problemas:
-
-1. Verifique os logs gerados pelo script
-2. Consulte o relatório HTML para detalhes das operações
-3. Execute novamente com privilégios administrativos
-4. Verifique conectividade de rede se houver falhas em atualizações
-
----
-
-**⚡ Dica**: Para manutenção regular, agende a execução da "Manutenção Completa" semanalmente usando o Agendador de Tarefas do Windows.
-
-**🔒 Segurança**: O script inclui verificações de integridade e não modifica arquivos críticos do sistema sem backup prévio.
+- Comunidade PowerShell
+- Microsoft Windows
+- Contribuidores do projeto
