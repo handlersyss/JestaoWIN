@@ -3,23 +3,35 @@
 function Monitor-SystemPerformance {
     Write-Log "Iniciando monitoramento de performance do sistema"
     
-    # CPU Usage - Método corrigido
+    # CPU Usage - Método alternativo usando WMI
     Write-Host "Coletando dados de CPU... aguarde alguns segundos..." -ForegroundColor Yellow
 
-    # Primeira amostra (descartada)
-    Get-Counter "\Processor(_Total)\% Processor Time" | Out-Null
-    Start-Sleep -Seconds 2
-
-    # Amostras válidas
+    # Coletar amostras de CPU usando WMI
     $CPUSamples = @()
     for ($i = 1; $i -le 5; $i++) {
-        $Sample = Get-Counter "\Processor(_Total)\% Processor Time"
-        $CPUSamples += $Sample.CounterSamples[0].CookedValue
+        $CPU = Get-WmiObject -Class Win32_Processor | Select-Object -ExpandProperty LoadPercentage
+        if ($CPU -ne $null) {
+            $CPUSamples += $CPU
+        }
         Start-Sleep -Seconds 1
         Write-Host "Amostra $i/5 coletada..." -ForegroundColor Gray
     }
 
-    $AvgCPU = ($CPUSamples | Measure-Object -Average).Average
+    $AvgCPU = if ($CPUSamples.Count -gt 0) {
+        ($CPUSamples | Measure-Object -Average).Average
+    } else {
+        # Método alternativo caso o primeiro falhe
+        try {
+            $CPU = Get-CimInstance -ClassName Win32_Processor | Select-Object -ExpandProperty LoadPercentage
+            if ($CPU -ne $null) {
+                $CPU
+            } else {
+                0
+            }
+        } catch {
+            0
+        }
+    }
     
     # Memory Usage  
     $TotalRAM = (Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property capacity -Sum).Sum
