@@ -22,18 +22,33 @@ O JestaoWIN é uma ferramenta abrangente que automatiza várias tarefas de manut
 ## 🚀 Requisitos
 
 - Windows 10 ou superior
-- PowerShell 5.0 ou superior
+- PowerShell 7 (PowerShell Core) - [Download PowerShell 7](https://aka.ms/powershell-release?tag=stable)
 - Privilégios de administrador
 - Conexão com a internet (para algumas funcionalidades)
 
 ## 📦 Instalação
 
-1. Clone ou baixe este repositório
-2. Navegue até a pasta do projeto
-3. Execute o script principal como administrador:
-```powershell
-.\jestao_win.ps1
-```
+1. Instale o PowerShell 7 (se ainda não tiver instalado)
+2. Clone ou baixe este repositório
+3. Navegue até a pasta do projeto
+4. Execute o script principal como administrador:
+   - Clique com o botão direito no PowerShell 7
+   - Selecione "Executar como administrador"
+   - Execute o comando:
+   ```powershell
+   .\jestao_win.ps1
+   ```
+
+## ⚠️ Importante
+
+- O script DEVE ser executado no PowerShell 7 (PowerShell Core)
+- O script DEVE ser executado como administrador
+- Não use o Windows PowerShell (PowerShell 5.1) para executar este script
+- Para verificar se está usando o PowerShell 7, execute:
+  ```powershell
+  $PSVersionTable.PSVersion
+  ```
+  A versão deve começar com 7.x.x
 
 ## 🛠️ Estrutura do Projeto
 
