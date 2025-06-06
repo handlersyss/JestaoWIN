@@ -155,9 +155,3 @@ Contribuições são bem-vindas! Para contribuir:
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## ✨ Agradecimentos
-
-- Comunidade PowerShell
-- Microsoft Windows
-- Contribuidores do projeto
